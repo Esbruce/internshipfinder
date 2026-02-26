@@ -1,0 +1,4 @@
+{"sessionId":"e64cab","location":"proxy.ts","message":"middleware passed /account without auth check","data":{"pathname":"/account"},"hypothesisId":"H5","timestamp":1772142602474}
+{"sessionId":"e64cab","location":"app/account/page.tsx","message":"account page getUser result","data":{"hasUser":false,"userId":null},"hypothesisId":"H1_H3","timestamp":1772142603493}
+{"sessionId":"e64cab","location":"proxy.ts","message":"middleware passed /account without auth check","data":{"pathname":"/account"},"hypothesisId":"H5","timestamp":1772142700128}
+{"sessionId":"e64cab","location":"app/account/page.tsx","message":"account page getUser result","data":{"hasUser":false,"userId":null},"hypothesisId":"H1_H3","timestamp":1772142700491}

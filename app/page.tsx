@@ -1,65 +1,93 @@
-import Image from "next/image";
+import React from "react";
+import Link from 'next/link';
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <main className="relative min-h-screen bg-gradient-to-b overflow-hidden from-slate-50 via-white to-slate-100 text-slate-900">
+      {/* Blurred gradient splodges at extremities */}
+      <div
+        className="pointer-events-none absolute -left-32 -top-32 h-100 w-100 rounded-full bg-gradient-to-br from-sky-200/40 to-indigo-300/30 blur-3xl"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-gradient-to-bl from-indigo-200/40 to-sky-300/30 blur-3xl"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-gradient-to-tr from-sky-100/50 to-indigo-200/30 blur-3xl"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute -bottom-32 -right-32 h-96 w-96 rounded-full bg-gradient-to-tl from-indigo-100/50 to-sky-200/30 blur-3xl"
+        aria-hidden
+      />
+      <div className="mx-auto flex min-h-screen max-w-5xl flex-col px-6 py-10 md:px-10 lg:px-12">
+
+        {/* Hero section */}
+        <section className="flex flex-1 flex-col items-s justify-center gap-10">
+          <div className="space-y-6">
+            <p className="inline-flex items-center rounded-full bg-slate-900/5 px-3 py-1 text-xs font-medium text-slate-700 ring-1 ring-slate-200">
+              Purpose-built for internship hunters
+            </p>
+
+            <div className="space-y-4">
+              <h1 className="text-balance text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl lg:text-8xl">
+                Let an AI agent{" "}
+                <span className="bg-gradient-to-r from-sky-500 to-indigo-500 bg-clip-text text-transparent">
+                  find companies
+                </span>{" "}
+                to reach out to.
+              </h1>
+
+              <p className="max-w-xl text-pretty text-sm leading-relaxed text-slate-600 sm:text-base">
+                Internship Outreach Agent scans opportunities, surfaces relevant companies, and
+                 so you can spend less time searching and increase your chance of success</p>
+            </div>
+
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+              <Link href="/get-started" className="inline-flex items-center justify-center rounded-full bg-slate-900 px-6 py-2.5 text-sm font-medium text-white shadow-sm transition hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50">
+                Get started
+              </Link>
+            </div>
+          </div>
+
+          {/* Simple feature highlight block */}
+          <div className="grid w-full gap-4 rounded-2xl border border-slate-200 bg-white/80 p-4 shadow-sm backdrop-blur-sm sm:grid-cols-3 sm:gap-5 sm:p-5">
+            <div className="space-y-1">
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                Smart company matching
+              </p>
+              <p className="text-xs text-slate-600 sm:text-sm">
+                Get a curated list of companies that align with your skills, interests, and
+                location.
+              </p>
+            </div>
+            <div className="space-y-1">
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                Outreach ready
+              </p>
+              <p className="text-xs text-slate-600 sm:text-sm">
+                See key company details so you can personalize messages without digging for info.
+              </p>
+            </div>
+            <div className="space-y-1">
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                Stay organized
+              </p>
+              <p className="text-xs text-slate-600 sm:text-sm">
+                Track who you&apos;ve contacted and who to follow up with in one simple view.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Footer */}
+        <footer className="mt-8 flex items-center justify-between border-t border-slate-200 pt-4 text-xs text-slate-500">
+          <span>© {new Date().getFullYear()} Internship Outreach Agent</span>
+          <span className="hidden sm:inline">Built to help you land your next internship.</span>
+        </footer>
+      </div>
+    </main>
   );
 }
+

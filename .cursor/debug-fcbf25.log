@@ -1,0 +1,2 @@
+{"sessionId":"fcbf25","location":"account-form.tsx:saveInternshipPrefs","message":"saveInternshipPrefs payload","data":{"payload":{"user_id":"242064ac-af1a-4987-8d88-aee43ad4628f","cv_url":null,"location":null,"industry":null,"ideal_internship_description":null,"updated_at":"2026-02-26T22:39:06.043Z"},"step":1},"timestamp":1772145546043,"hypothesisId":"A"}
+{"sessionId":"fcbf25","location":"account-form.tsx:saveInternshipPrefs","message":"saveInternshipPrefs success","data":{},"timestamp":1772145546121,"hypothesisId":"C"}
