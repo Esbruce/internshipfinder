@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist_Mono, Montserrat } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
 });
 
@@ -25,8 +25,25 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${montserrat.variable} ${geistMono.variable} antialiased h-full w-full overflow-hidden`}
       >
+              {/* Blurred gradient splodges at extremities */}
+          <div
+            className="pointer-events-none absolute -left-32 -top-32 h-100 w-100 rounded-full bg-gradient-to-br from-sky-200/40 to-indigo-300/20 blur-3xl"
+            aria-hidden
+          />
+          <div
+            className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-gradient-to-bl from-indigo-200/40 to-sky-300/20 blur-3xl"
+            aria-hidden
+          />
+          <div
+            className="pointer-events-none absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-gradient-to-tr from-sky-100/50 to-indigo-200/20 blur-3xl"
+            aria-hidden
+          />
+          <div
+            className="pointer-events-none absolute -bottom-32 -right-32 h-96 w-96 rounded-full bg-gradient-to-tl from-indigo-100/50 to-sky-200/20 blur-3xl"
+            aria-hidden
+          />
         {children}
       </body>
     </html>

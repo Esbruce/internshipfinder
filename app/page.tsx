@@ -32,7 +32,7 @@ export default function HomePage() {
 
             <div className="space-y-4">
               <h1 className="text-balance text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl lg:text-8xl">
-                Let an AI agent{" "}
+                Let Intern Agents{" "}
                 <span className="bg-gradient-to-r from-sky-500 to-indigo-500 bg-clip-text text-transparent">
                   find companies
                 </span>{" "}
@@ -40,7 +40,7 @@ export default function HomePage() {
               </h1>
 
               <p className="max-w-xl text-pretty text-sm leading-relaxed text-slate-600 sm:text-base">
-                Internship Outreach Agent scans opportunities, surfaces relevant companies, and
+                Internship Outreach Intern Agents scans opportunities, surfaces relevant companies, and
                  so you can spend less time searching and increase your chance of success</p>
             </div>
 
@@ -83,7 +83,7 @@ export default function HomePage() {
 
         {/* Footer */}
         <footer className="mt-8 flex items-center justify-between border-t border-slate-200 pt-4 text-xs text-slate-500">
-          <span>© {new Date().getFullYear()} Internship Outreach Agent</span>
+          <span>© {new Date().getFullYear()} Internship Outreach Intern Agents</span>
           <span className="hidden sm:inline">Built to help you land your next internship.</span>
         </footer>
       </div>
