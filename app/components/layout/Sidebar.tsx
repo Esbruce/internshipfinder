@@ -50,9 +50,47 @@ function AgentsIcon({ className }: SVGProps<SVGSVGElement>) {
   )
 }
 
+function EmailIcon({ className }: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <path d="m4 7 8 6 8-6" />
+    </svg>
+  )
+}
+
+function AccountIcon({ className }: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <circle cx="12" cy="8" r="4" />
+      <path d="M5 20a7 7 0 0 1 14 0" />
+    </svg>
+  )
+}
+
 const navItems: NavItem[] = [
   { href: '/dashboard', label: 'Dashboard', icon: DashboardIcon },
   { href: '/agents', label: 'Intern Agents', icon: AgentsIcon },
+  { href: '/email', label: 'Email', icon: EmailIcon },
+  { href: '/account', label: 'Account', icon: AccountIcon },
 ]
 
 export function DashboardSidebar() {
