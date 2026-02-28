@@ -147,15 +147,19 @@ export default function DashboardPage() {
   
     return (
       <div className="mx-auto w-full space-y-6">
-        <div className="grid w-full h-[80vh] grid-cols-[1.6fr_1fr] grid-rows-[1fr_1fr] gap-6">
-          <Graph loadingProspects={loadingProspects} prospects={prospects} />
+        <div className="grid h-[80vh] w-full grid-cols-[1.6fr_1fr] grid-rows-[minmax(0,1fr)_minmax(0,1fr)] gap-6">
+          <div className="min-h-0 h-full">
+            <Graph loadingProspects={loadingProspects} prospects={prospects} />
+          </div>
           <div className="row-span-2 h-full">
             <ProspectsListSection loadingProspects={loadingProspects} prospects={prospects} />
           </div>
-          <Actions loadingProspects={loadingProspects} prospects={prospects} />
+          <div className="min-h-0 h-full">
+            <Actions loadingProspects={loadingProspects} prospects={prospects} />
+          </div>
         </div>
 
-        <div className="grid h-[80vh] w-full grid-cols-2 grid-rows-[1fr_1fr] gap-6">
+        <div className="grid min-h-[80vh] w-full grid-cols-2 auto-rows-[minmax(22rem,auto)] gap-6">
           <div className="h-full">
             <AgentListSection loadingAgents={loadingAgents} agents={agents} />
           </div>

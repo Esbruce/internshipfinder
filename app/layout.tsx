@@ -23,8 +23,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
+        suppressHydrationWarning
         className={`${montserrat.variable} ${geistMono.variable} antialiased h-full w-full overflow-hidden`}
       >
               {/* Blurred gradient splodges at extremities */}

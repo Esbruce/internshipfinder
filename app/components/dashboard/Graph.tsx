@@ -103,7 +103,7 @@ export default function Graph({ prospects, loadingProspects }: GraphProps) {
   const gridSteps = 4
 
   return (
-    <section className="h-full rounded-2xl border border-slate-300 bg-white p-6 dark:border-slate-600 dark:bg-slate-800">
+    <section className="flex h-full min-h-0 flex-col rounded-2xl border border-slate-300 bg-white p-6 dark:border-slate-600 dark:bg-slate-800">
       <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
         <h2 className="text-3xl font-semibold text-slate-900 dark:text-white">Outreach</h2>
         <div className="flex items-center gap-4">
@@ -136,16 +136,16 @@ export default function Graph({ prospects, loadingProspects }: GraphProps) {
       {loadingProspects ? (
         <p className="text-sm text-slate-600 dark:text-slate-300">Loading outreach chart...</p>
       ) : chartData.length === 0 ? (
-        <div className="flex h-[220px] items-center justify-center rounded-xl border border-dashed border-slate-300 text-sm text-slate-500 dark:border-slate-600 dark:text-slate-400">
+        <div className="flex min-h-0 flex-1 items-center justify-center rounded-xl border border-dashed border-slate-300 text-sm text-slate-500 dark:border-slate-600 dark:text-slate-400">
           No discovered prospects yet.
         </div>
       ) : (
-        <div className="w-full overflow-x-auto">
+        <div className="min-h-0 flex-1 w-full overflow-x-auto">
           <svg
             viewBox={`0 0 ${chartWidth} ${chartHeight}`}
             role="img"
             aria-label={`Discovered prospects by creation ${viewMode}`}
-            className="min-w-[560px]"
+            className="h-full min-w-[560px]"
           >
             {Array.from({ length: gridSteps + 1 }).map((_, index) => {
               const y = topPadding + (plotHeight / gridSteps) * index

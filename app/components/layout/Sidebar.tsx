@@ -59,7 +59,7 @@ export function DashboardSidebar() {
   const pathname = usePathname()
 
   return (
-    <aside className="h-screen w-64 border-r-2 border-slate-900 bg-white p-4 py-8 dark:border-slate-100 dark:bg-slate-900">
+    <aside className="flex h-screen w-64 flex-col border-r-2 border-slate-900 bg-white p-4 py-8 dark:border-slate-100 dark:bg-slate-900">
       <div className="mb-6 rounded-xl border-2 border-slate-900 bg-white px-3 py-2 text-sm font-black uppercase tracking-wide text-accent shadow-[1px_2px_0px_0px_rgba(15,23,42,1)] dark:border-slate-100 dark:bg-slate-800 dark:shadow-[4px_4px_0px_0px_rgba(248,250,252,0.7)]">
         Internship Finder
       </div>
@@ -84,6 +84,15 @@ export function DashboardSidebar() {
           )
         })}
       </nav>
+
+      <form action="/auth/signout" method="post" className="mt-auto pt-4">
+        <button
+          type="submit"
+          className="flex w-full items-center justify-center gap-2 rounded-lg border-2 border-slate-300 bg-white px-3 py-2 text-sm font-semibold text-slate-700 transition hover:border-slate-900 hover:bg-sky-100 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200 dark:hover:border-slate-100 dark:hover:bg-slate-700"
+        >
+          Sign out
+        </button>
+      </form>
     </aside>
   )
 }

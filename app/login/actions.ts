@@ -1,46 +1,41 @@
 'use server'
 
-import { revalidatePath } from 'next/cache'
+import { headers } from 'next/headers'
 import { redirect } from 'next/navigation'
 
 import { createClient } from '@/lib/supabase/server'
 
-export async function login(formData: FormData) {
-  const supabase = await createClient()
-
-  // type-casting here for convenience
-  // in practice, you should validate your inputs
-  const data = {
-    email: formData.get('email') as string,
-    password: formData.get('password') as string,
+export async function signInWithGoogle(formData: FormData) {
+  const consentGiven = formData.get('gmail_consent') === 'on'
+  if (!consentGiven) {
+    redirect('/login?error=gmail_consent_required')
   }
 
-  const { error } = await supabase.auth.signInWithPassword(data)
+  const supabase = await createClient()
+  const headersList = await headers()
+  const host = headersList.get('x-forwarded-host') ?? headersList.get('host')
+  const protocol =
+    headersList.get('x-forwarded-proto') ?? (host?.includes('localhost') ? 'http' : 'https')
+  const origin = headersList.get('origin') ?? (host ? `${protocol}://${host}` : null)
+  const redirectTo =
+    `${origin ?? process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'}/auth/callback?next=/dashboard`
 
-  if (error) {
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider: 'google',
+    options: {
+      redirectTo,
+      scopes:
+        'openid email profile https://www.googleapis.com/auth/gmail.send',
+      queryParams: {
+        access_type: 'offline',
+        prompt: 'consent',
+      },
+    },
+  })
+
+  if (error || !data.url) {
     redirect('/error')
   }
 
-  revalidatePath('/', 'layout')
-  redirect('/dashboard')
-}
-
-export async function signup(formData: FormData) {
-  const supabase = await createClient()
-
-  // type-casting here for convenience
-  // in practice, you should validate your inputs
-  const data = {
-    email: formData.get('email') as string,
-    password: formData.get('password') as string,
-  }
-
-  const { error } = await supabase.auth.signUp(data)
-
-  if (error) {
-    redirect('/error')
-  }
-
-  revalidatePath('/', 'layout')
-  redirect('/dashboard')
+  redirect(data.url)
 }
